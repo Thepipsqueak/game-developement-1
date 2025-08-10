@@ -21,5 +21,6 @@ def on_mouse_down(pos):
     if mot.collidepoint(pos):
         stuti()
         mes="You found him!!!but...can you do it again??"
-
+    else:
+        mes="WRONG!!!!!Try again...if you can that is..."
 pgzrun.go()
