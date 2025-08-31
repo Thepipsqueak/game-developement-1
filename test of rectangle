@@ -1,0 +1,14 @@
+import pgzrun
+#defining screen size
+WIDTH=450
+HEIGHT=350
+def draw():
+    achou=Rect((200,35),(150,50))
+    screen.draw.rect(achou,"dark green")
+    huh=Rect((200,0),(75,225))
+    screen.draw.rect(huh,"blue")
+    nooo=Rect((125,200),(200,50))
+    screen.draw.rect(nooo,"red")
+    fright=Rect((175,200),(50,200))
+    screen.draw.rect(fright,"white")
+pgzrun.go()
