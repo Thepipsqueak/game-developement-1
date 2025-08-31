@@ -13,9 +13,11 @@ def draw():
     retro.draw()
     orter.draw()
     #displaying a score
-    screen.draw.text("SCORE:"+str(cruel),(465,35),fontsize=40)
+    screen.draw.text("Score:"+str(cruel),(465,35),fontsize=40)
     if fortnite == True:
         screen.fill("white")
+        screen.draw.text("Congrats!",(455,45),fontsize=60,color="black")
+        screen.draw.text(("Score=")+str(cruel),(462,90),fontsize=50,color="red")
 def imprisonned():
   orter.x=random.randint(0,1000)
   orter.y=random.randint(0,425)
@@ -24,6 +26,7 @@ def over():
     fortnite=True
 
 def update():
+    global cruel
     pass
     #keyboard event
     if keyboard.left:
@@ -40,6 +43,7 @@ def update():
         retro.angle=270
     if retro.colliderect(orter):
         imprisonned()
+        cruel=cruel+1
 
 clock.schedule(over,30.0)
 pgzrun.go()
