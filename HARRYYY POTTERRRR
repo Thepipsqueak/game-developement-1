@@ -1,0 +1,49 @@
+import pgzrun
+import time
+import random
+WIDTH=1000
+HEIGHT=425
+retro=Actor("harry potttter.png")
+retro.pos=100,212
+orter=Actor("happy rn.png",(950,212))
+cruel=0
+fortnite=False
+def draw():
+    screen.blit("qk.jpg",(0,0))
+    retro.draw()
+    orter.draw()
+    #displaying a score
+    screen.draw.text("Score:"+str(cruel),(465,35),fontsize=40)
+    if fortnite == True:
+        screen.fill("white")
+        screen.draw.text("Congrats!",(455,45),fontsize=60,color="black")
+        screen.draw.text(("Score=")+str(cruel),(462,90),fontsize=50,color="red")
+def imprisonned():
+  orter.x=random.randint(0,1000)
+  orter.y=random.randint(0,425)
+def over():
+    global fortnite
+    fortnite=True
+
+def update():
+    global cruel
+    pass
+    #keyboard event
+    if keyboard.left:
+        retro.x-=5.5
+        retro.angle=180
+    if keyboard.right:
+        retro.x+=5.5
+        retro.angle=0
+    if keyboard.up:
+        retro.y-=4
+        retro.angle=90
+    if keyboard.down:
+        retro.y+=4
+        retro.angle=270
+    if retro.colliderect(orter):
+        imprisonned()
+        cruel=cruel+1
+
+clock.schedule(over,30.0)
+pgzrun.go()
