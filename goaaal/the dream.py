@@ -35,6 +35,8 @@ def draw():
         yesrej=time.time()-emit
         screen.draw.text(str(round(yesrej,1)),(35,35),fontsize=80)
     else:
+        screen.fill("red")
+        screen.draw.text("Congrats you have completed your training!",(250,200),fontsize=35)
         screen.draw.text(str(round(yesrej,1)),(35,35),fontsize=80)
 def on_mouse_down(pos):
     global barca
