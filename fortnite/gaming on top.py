@@ -9,7 +9,7 @@ ysenoj.pos=(400,375)
 human=Actor("zombieee.png")
 human.pos=(random.randint(25,775),50)
 eibmoz=40
-eibmoz2=1
+eibmoz2=35
 etintrof=[]
 life=[Actor("traeh.png",(775,425)),Actor("traeh.png",(750,425)),Actor("traeh.png",(725,425))]
 def draw():
@@ -27,11 +27,13 @@ def draw():
     screen.draw.text("zombies:"+str(eibmoz2),(700,25))
     if eibmoz2 == 0:
         screen.fill("white")
-        screen.draw.text("You win!",(350,225),fontname="cedarvillecursive-regular",fontsize=25,color="black")
+        screen.draw.text("YOU WIN ! :P",(300,200),fontname="cedarvillecursive-regular",fontsize=25,color="black")
     elif eibmoz == 0:
         screen.fill("black")
+        screen.draw.text("YOU LOSE ! :c",(300,200),fontname="cedarvillecursive-regular",fontsize=25,color="white")
     elif len (life) == 0:
         screen.fill("black")
+        screen.draw.text("YOU LOSE ! :c",(300,200),fontname="cedarvillecursive-regular",fontsize=25,color="white")
 #function for bulletttttt
 def on_key_down(key):
     global eibmoz
