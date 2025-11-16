@@ -10,8 +10,16 @@ downgrade=1
 lluf=14
 walmart=None
 dictionnary=[]
+deeps=5
 def draw():
     screen.blit("mechanism.jpg",(0,0))
+    for i in dictionnary:
+        i.draw()
+    screen.draw.text(f"Level:{downgrade}",topleft=(20,20),fontsize=40,color="red")
+    if walmart:
+        screen.draw.text(f"Click the {walmart.split('.')[0].capitalize()} ! ",midtop=(WIDTH//2,20),fontsize=50,color="red")
+def on_mouse_down():
+    
 #function for falling item
 def loot(xtra):
     global walmart
@@ -27,7 +35,19 @@ def loot(xtra):
         planet.x=(i+1)*galaxie
         planet.y=0
         target.append(planet)
-        
+        animate(planet,duration=max(1,deeps-downgrade),on_finished=lambda a=planet:bottommottob(a),y=HEIGHT)
+    return target
+#function for actor reaching the bottom
+def bottommottob(actor):
+    global emag
+    if not actor.active:
+        return
+    if actor.image == walmart:
+        emag=True
 def update():
-    pass
+    global dictionnary ,downgrade
+    if emag or incomplete:
+        return
+    if len (dictionnary) == 0:
+        dictionnary=loot(downgrade) 
 pgzrun.go()
