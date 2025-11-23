@@ -18,8 +18,21 @@ def draw():
     screen.draw.text(f"Level:{downgrade}",topleft=(20,20),fontsize=40,color="red")
     if walmart:
         screen.draw.text(f"Click the {walmart.split('.')[0].capitalize()} ! ",midtop=(WIDTH//2,20),fontsize=50,color="red")
-def on_mouse_down():
-    
+        
+def on_mouse_down(pos):
+    global dictionnary,downgrade,incomplete,emag
+    for i in dictionnary:
+        if i.collidepoint(pos):
+            if i.image == walmart:
+                if downgrade == lluf:
+                   incomplete=True 
+                else:
+                    downgrade+=1
+                    for stupid in dictionnary:
+                        stupid.active=False
+                    dictionnary=[]
+
+
 #function for falling item
 def loot(xtra):
     global walmart
