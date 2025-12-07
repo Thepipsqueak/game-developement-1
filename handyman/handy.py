@@ -18,15 +18,22 @@ def draw():
     screen.blit("mechanism.jpg",(0,0))
     if emag == True:
         screen.fill("white")
-        screen.draw.text("Game Over!:c",(325,225),fontsize=75,color="black")
-    for i in dictionnary:
-        i.draw()
-    screen.draw.text(f"Level:{downgrade}",topleft=(20,20),fontsize=40,color="red")
-    if walmart:
-        screen.draw.text(f"Click the {walmart.split('.')[0].capitalize()} ! ",midtop=(WIDTH//2,20),fontsize=50,color="red")
+        screen.draw.text("Game Over!:c",(250,175),fontsize=75,color="black")
+    elif incomplete:
+        screen.fill("black")
+        screen.draw.text("Congratulation you beat the easiest game \n                       on the planet!:p :)",(100,175),fontsize=45,color="white")
+    else:
+        for i in dictionnary:
+            i.draw()
+        screen.draw.text(f"Level:{downgrade}",topleft=(20,20),fontsize=40,color="red")
+        if walmart:
+            screen.draw.text(f"Click the {walmart.split('.')[0].capitalize()} ! ",midtop=(WIDTH//2,20),fontsize=50,color="red")
     
 def on_mouse_down(pos):
     global dictionnary,downgrade,incomplete,emag
+    if incomplete or emag:
+        fruit()
+        return
     for i in dictionnary:
         if i.collidepoint(pos):
             if i.image == walmart:
@@ -34,7 +41,6 @@ def on_mouse_down(pos):
                    incomplete=True 
                 else:
                     downgrade+=1
-                    emag=False
                     for stupid in dictionnary:
                         stupid.active=False
                     dictionnary=[]
@@ -60,7 +66,7 @@ def loot(xtra):
         planet.x=(i+1)*galaxie
         planet.y=0
         target.append(planet)
-        animate(planet,duration=max(2,deeps-downgrade),on_finished=lambda a=planet:bottommottob(a),y=HEIGHT)
+        animate(planet,duration=max(2,deeps-downgrade),on_finished=bottommottob,y=HEIGHT)
     return target
 #function for actor reaching the bottom
 def bottommottob(actor):
@@ -74,7 +80,6 @@ def update():
     if emag or incomplete:
         return
     if len (dictionnary) == 0:
-        emag=False
         dictionnary=loot(downgrade)
 #function for restartig game
 def fruit():
