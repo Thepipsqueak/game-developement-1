@@ -16,12 +16,12 @@ deeps=15
 strange=10
 def draw():
     screen.blit("mechanism.jpg",(0,0))
-    if emag == True:
-        screen.fill("white")
-        screen.draw.text("Game Over!:c",(250,175),fontsize=75,color="black")
-    elif incomplete:
+    if incomplete:
         screen.fill("black")
         screen.draw.text("Congratulation you beat the easiest game \n                       on the planet!:p :)",(100,175),fontsize=45,color="white")
+    elif emag == True:
+        screen.fill("white")
+        screen.draw.text("Game Over!:c",(250,175),fontsize=75,color="black")
     else:
         for i in dictionnary:
             i.draw()
@@ -66,7 +66,7 @@ def loot(xtra):
         planet.x=(i+1)*galaxie
         planet.y=0
         target.append(planet)
-        animate(planet,duration=max(2,deeps-downgrade),on_finished=bottommottob,y=HEIGHT)
+        animate(planet,duration=max(2,deeps-downgrade),on_finished=lambda a=planet: bottommottob(a),y=HEIGHT)
     return target
 #function for actor reaching the bottom
 def bottommottob(actor):
