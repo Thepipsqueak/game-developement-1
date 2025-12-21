@@ -1,0 +1,11 @@
+Who made apple?,Eve Jobs,Jeffrey Bezos,Elon Musk,Steve Jobs,4
+who made googlepixel?,David Bazuki, Sergey Brin and Larry Page,John Cook,Google,2
+What is the most used body part?,Hands,Brain,Heart,Nose,2
+What is the most important organ in the body?,Brain,Heart,Lungs,eyes,1
+What body part feels pain the most?,Head,Elbows,Fingertips,skin.3
+Which organ works nonstop without rest?,Brain,Nerves,Blood Vessel,Heart,4
+Which sense do humans use the most?,Smell,Sight,Taste,Touch,2
+Which body part heals the fastest?,Skin,Fingernail,Eyes,Tongue,1
+What is the closest planet to the sun?,Venus,Mars,Neptune,Mercury,4
+What is the furthest planet from the sun?,Jupiter,Urnaus,Neptune,Saturn,3
+What is considered as the dwarf planet?,Pluto,Moon,Mercury,Venus,1
