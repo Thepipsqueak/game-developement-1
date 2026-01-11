@@ -10,8 +10,14 @@ monkey=Rect(320,200,280,130)
 stuti=Rect(320,350,280,130)
 acid=Rect(625,100,165,200)
 spaceship=Rect(625,350,165,130)
-wrong=[dead,earth,monkey,stuti,acid,spaceship]
-century=6.7
+wrong=[dead,earth,monkey,stuti]
+century=30
+football=0
+rage=False
+pokemon=0
+smart=0
+paper="nature.txt"
+hold=[]
 def draw():
     screen.fill("darkviolet")
     screen.draw.filled_rect(passion,"yellow")
@@ -20,10 +26,62 @@ def draw():
     screen.draw.filled_rect(earth,"white")
     screen.draw.filled_rect(monkey,("white"))
     screen.draw.filled_rect(stuti,("white"))
-    screen.draw.filled_rect(acid,("white"))
-    screen.draw.filled_rect(spaceship,("white"))
+    screen.draw.filled_rect(acid,("yellow"))
+    screen.draw.filled_rect(spaceship,("yellow"))
     #text boxes
+    screen.draw.textbox('skip',spaceship,color=("black"),)
+    screen.draw.textbox("Time:\n"+str(century),acid,color=("black"))
+    child="welcome to the ultimate test of knowledge to test if you are smart"
+    child=child+f"Q:{pokemon} of {smart}"
+    screen.draw.textbox(child,passion,color=("black"))
+    screen.draw.textbox(question[0],confusion,color=("black"))
+    screen.draw.textbox(question[1],dead,color=("black"))
+    screen.draw.textbox(question[2],earth,color=("black"))
+    screen.draw.textbox(question[3],monkey,color=("black"))
+    screen.draw.textbox(question[4],stuti,color=("black"))
+#checking if answer is correct
+def headphones():
+    global century,football,question,hold
+    football+=1
+    if len(hold)>0:
+        question=stutii()
+        century=30
+    else:
+        me()
+#checking if you lost
+def me():
+    global question,century,rage,football
+    century=0
+    rage=True
+    test=f"you are dummy,git gud!your score is {football}"
+    question=[test,"-","-","-","-",1]
+me()
+
     
 def update():
-    pass
+    pass   
+    microsoft()
+def backstory():
+    global century
+    if century>0:
+        century-=1
+def microsoft():
+    passion.x-=3
+    if passion.right<0:
+        passion.left=800
+#function for reading the file
+def xbox():
+    global smart,pokemon,hold
+    synonyme=open(paper,"r")
+    for i in synonyme:
+        hold.append(i)
+        smart+=1
+    synonyme.close()
+def stutii ():
+    global pokemon
+    pokemon+=1
+    return hold.pop(0).split(",")
+clock.schedule_interval(backstory,1)  
+xbox()
+question=stutii()   
 pgzrun.go()
