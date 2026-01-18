@@ -19,26 +19,30 @@ smart=0
 paper="nature.txt"
 hold=[]
 def draw():
-    screen.fill("darkviolet")
-    screen.draw.filled_rect(passion,"yellow")
-    screen.draw.filled_rect(confusion,"white")
-    screen.draw.filled_rect(dead,"white")
-    screen.draw.filled_rect(earth,"white")
-    screen.draw.filled_rect(monkey,("white"))
-    screen.draw.filled_rect(stuti,("white"))
-    screen.draw.filled_rect(acid,("yellow"))
-    screen.draw.filled_rect(spaceship,("yellow"))
-    #text boxes
-    screen.draw.textbox('skip',spaceship,color=("black"),)
-    screen.draw.textbox("Time:\n"+str(century),acid,color=("black"))
-    child="welcome to the ultimate test of knowledge to test if you are smart"
-    child=child+f"Q:{pokemon} of {smart}"
-    screen.draw.textbox(child,passion,color=("black"))
-    screen.draw.textbox(question[0],confusion,color=("black"))
-    screen.draw.textbox(question[1],dead,color=("black"))
-    screen.draw.textbox(question[2],earth,color=("black"))
-    screen.draw.textbox(question[3],monkey,color=("black"))
-    screen.draw.textbox(question[4],stuti,color=("black"))
+    if rage == True:
+        screen.fill("black")
+        screen.draw.text(f"Git Gud!:Your score is {football}",(175,225),fontsize=60,color=("white"))
+    else:
+        screen.fill("darkviolet")
+        screen.draw.filled_rect(passion,"yellow")
+        screen.draw.filled_rect(confusion,"white")
+        screen.draw.filled_rect(dead,"white")
+        screen.draw.filled_rect(earth,"white")
+        screen.draw.filled_rect(monkey,("white"))
+        screen.draw.filled_rect(stuti,("white"))
+        screen.draw.filled_rect(acid,("yellow"))
+        screen.draw.filled_rect(spaceship,("yellow"))
+        #text boxes
+        screen.draw.textbox('skip',spaceship,color=("black"),)
+        screen.draw.textbox("Time:\n"+str(century),acid,color=("black"))
+        child="welcome to the ultimate test of knowledge to test if you are smart"
+        child=child+f"Q:{pokemon} of {smart}"
+        screen.draw.textbox(child,passion,color=("black"))
+        screen.draw.textbox(question[0],confusion,color=("black"))
+        screen.draw.textbox(question[1],dead,color=("black"))
+        screen.draw.textbox(question[2],earth,color=("black"))
+        screen.draw.textbox(question[3],monkey,color=("black"))
+        screen.draw.textbox(question[4],stuti,color=("black"))
 #checking if answer is correct
 def headphones():
     global century,football,question,hold
@@ -50,12 +54,23 @@ def headphones():
         me()
 #checking if you lost
 def me():
-    global question,century,rage,football
+    global question,century,rage,football,child
     century=0
     rage=True
-    test=f"you are dummy,git gud!your score is {football}"
-    question=[test,"-","-","-","-",1]
-me()
+    child=f"you are dummy,git gud!your score is {football}"
+    question=[child,"-","-","-","-",1]
+
+def on_mouse_down(pos):
+    i=1
+    for necessity in wrong:
+        if necessity.collidepoint(pos):
+            if i == int(question[5]):
+                headphones()
+            else:
+                me()
+        i+=1
+
+
 
     
 def update():
