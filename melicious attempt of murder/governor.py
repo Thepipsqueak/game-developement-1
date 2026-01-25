@@ -69,17 +69,28 @@ def on_mouse_down(pos):
             else:
                 me()
         i+=1
+    if spaceship.collidepoint(pos):
+        school()
 
-
+# function for skipping
+def school():
+    global question, century
+    if hold and rage != False:
+        question=stutii()
+        century=30
+    else:
+        me()
 
     
 def update():
     pass   
     microsoft()
+#function for timer
 def backstory():
     global century
     if century>0:
         century-=1
+# function for marquee box
 def microsoft():
     passion.x-=3
     if passion.right<0:
