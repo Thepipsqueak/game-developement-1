@@ -18,8 +18,12 @@ pokemon=0
 smart=0
 paper="nature.txt"
 hold=[]
+gitgud=False
 def draw():
-    if rage == True:
+    if gitgud == True:
+        screen.fill("white")
+        screen.draw.text(f"congratulations! You acctually got good...\n AT NOTHING!!!your score is {football}",(50,225),fontsize=50,color=("black"))
+    elif rage == True:
         screen.fill("black")
         screen.draw.text(f"Git Gud!:Your score is {football}",(175,225),fontsize=60,color=("white"))
     else:
@@ -51,14 +55,19 @@ def headphones():
         question=stutii()
         century=30
     else:
-        me()
+        stressed()
 #checking if you lost
 def me():
     global question,century,rage,football,child
     century=0
     rage=True
-    child=f"you are dummy,git gud!your score is {football}"
-    question=[child,"-","-","-","-",1]
+# check if you win
+def stressed():
+    global gitgud,rage
+    gitgud=True
+    rage=False
+
+
 
 def on_mouse_down(pos):
     i=1
@@ -75,7 +84,7 @@ def on_mouse_down(pos):
 # function for skipping
 def school():
     global question, century
-    if hold and rage != False:
+    if hold and rage != True:
         question=stutii()
         century=30
     else:
