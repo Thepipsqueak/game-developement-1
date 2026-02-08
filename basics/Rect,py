@@ -1,0 +1,28 @@
+import pygame
+pygame.init()#initialising pygame
+gorilla=800
+giraffe=550
+#creating screen
+Nature=pygame.display.set_mode((gorilla,giraffe))
+anything=True
+#backround colour
+Nature.fill("white")
+pygame.display.update()
+#classe for the rectangle
+class honey:
+    def __init__(self,colour,sun):
+        self.colour=colour
+        self.sun=sun
+        self.isosceles=Nature
+    def draw(self):
+        self.maths=pygame.draw.rect(self.isosceles,self.colour,self.sun)
+#object creation
+robin=honey("black",(400,525,50,25))
+#main loop
+while anything:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            anything=False
+    robin.draw()
+    pygame.display.update()
+pygame.quit()
