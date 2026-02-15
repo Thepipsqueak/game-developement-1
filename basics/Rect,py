@@ -18,11 +18,17 @@ class honey:
         self.maths=pygame.draw.rect(self.isosceles,self.colour,self.sun)
 #object creation
 robin=honey("black",(400,525,50,25))
+starfire=honey("magenta",(400,275,100,80))
+beastboy=honey("Green",(100,50,100,80))
+cyborg=honey("grey",(750,50,60,20))
 #main loop
 while anything:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             anything=False
     robin.draw()
+    starfire.draw()
+    beastboy.draw()
+    cyborg.draw()
     pygame.display.update()
 pygame.quit()
