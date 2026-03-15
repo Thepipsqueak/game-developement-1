@@ -41,6 +41,8 @@ while anything:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             anything=False
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            trandy=random.randint(10,99)
     screen.blit(i1,(30,50))
     screen.blit(i2,(425,50))
     text=important.render("PLAYER",True,"black")
@@ -89,11 +91,9 @@ while anything:
     screen.blit(i3,(600,-10))
     importànt=notimportant.render("your random number is:",True,"black")
     screen.blit(importànt,(100,10))
+    pygame.draw.rect(screen,"yellow",(480,0,100,50))
     trandyuno=important.render(str(trandy),True,"black")
     screen.blit(trandyuno,(500,10))
-    if event.type == pygame.MOUSEBUTTONDOWN:
-        trandy=random.randint(10,99)
-        trandyuno=important.render(str(trandy),True,"black")
-        screen.blit(trandyuno,(500,10))
+
     pygame.display.update()
 pygame.quit()
