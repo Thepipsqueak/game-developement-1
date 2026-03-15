@@ -8,15 +8,26 @@ i1=pygame.image.load("OIP.jpg")
 i1=pygame.transform.scale(i1,(350,450))
 i2=pygame.image.load("OIP.jpg")
 i2=pygame.transform.scale(i1,(350,450))
+i3=pygame.image.load("bringo.png")
 important=pygame.font.SysFont("Science_Gothic",75)
+notimportant=pygame.font.SysFont("Science_Gothic",50)
 tele=[]
-for i in range(9):
+c=0
+d=0
+while c < 9:
     randy=random.randint(10,99)
+    if randy in tele:
+        continue
     tele.append(randy)
+    c+=1
 melee=[]
-for i in range(9):
+while d < 9:
     mandy=random.randint(10,99)
+    if mandy in tele:
+        continue
     melee.append(mandy)
+    d+=1
+trandy=random.randint(10,99)
 #for te in tele:
 #class for the player
 '''class thumb:
@@ -75,5 +86,14 @@ while anything:
     screen.blit(munero_ocho,(575,370))
     munero_nueve=important.render(str(melee[8]),True,"black")
     screen.blit(munero_nueve,(685,370))
+    screen.blit(i3,(600,-10))
+    importànt=notimportant.render("your random number is:",True,"black")
+    screen.blit(importànt,(100,10))
+    trandyuno=important.render(str(trandy),True,"black")
+    screen.blit(trandyuno,(500,10))
+    if event.type == pygame.MOUSEBUTTONDOWN:
+        trandy=random.randint(10,99)
+        trandyuno=important.render(str(trandy),True,"black")
+        screen.blit(trandyuno,(500,10))
     pygame.display.update()
 pygame.quit()
