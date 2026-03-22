@@ -38,11 +38,6 @@ trandy=random.randint(10,99)
 player=thumb("OIP.jpg")'''
 anything=True
 while anything:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            anything=False
-        if event.type == pygame.MOUSEBUTTONDOWN:
-            trandy=random.randint(10,99)
     screen.blit(i1,(30,50))
     screen.blit(i2,(425,50))
     text=important.render("PLAYER",True,"black")
@@ -94,6 +89,15 @@ while anything:
     pygame.draw.rect(screen,"yellow",(480,0,100,50))
     trandyuno=important.render(str(trandy),True,"black")
     screen.blit(trandyuno,(500,10))
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            anything=False
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            trandy=random.randint(10,99)
+            for i in tele:
+                if i == trandy:
+                    retro=pygame.image.load("tingo.png")
+                    screen.blit(retro,(70,120))
 
     pygame.display.update()
 pygame.quit()
