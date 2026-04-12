@@ -28,8 +28,15 @@ while iranfromhome_love:
     #key movement
     keys=pygame.key.get_pressed()
     if keys[K_w]:
-        mmi.carré(-7)
+        mmi.carré(-0.5)
+    if keys[K_s]:
+        mmi.carré(0.5)
+    if keys[K_d]:
+        mmi.losange(1)
+    if keys[K_a]:
+        mmi.losange(-1)
     troupe.draw(screen)
+    
 
     pygame.display.update()
 pygame.quit()
