@@ -8,6 +8,7 @@ iranfromhome_love=True
 shark=pygame.image.load("asteroid.png")
 jared=pygame.image.load("innocent_child_Jared.png")
 acneedbob=pygame.image.load("bob.png")
+language=10000
 class two (pygame.sprite.Sprite):
     def __init__(self,image,x,y):
         super().__init__()
@@ -19,6 +20,13 @@ class two (pygame.sprite.Sprite):
         self.rect.x+=sonic
     def carré(self,flash):
         self.rect.y+=flash
+    def planet(self):
+        global language
+        humans=pygame.sprite.spritecollide(self,InnocentMassacre,False)
+        for i in humans:
+            language-=200
+            i.rect.x=random.randint(50,750)
+            i.rect.y=random.randint(-300,-50)
 #class for bob and innocent child jared
 class innocents(pygame.sprite.Sprite):
     def __init__(self,image,x,y):
@@ -79,6 +87,6 @@ while iranfromhome_love:
 
     troupe.draw(screen)
     InnocentMassacre.draw(screen)
-
+    mmi.planet()
     pygame.display.update()
 pygame.quit()
