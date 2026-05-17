@@ -1,6 +1,7 @@
 import pygame
 from pygame.locals import*
 import random
+import time
 pygame.init()
 screen=pygame.display.set_mode((800,450))
 utahime=pygame.image.load("whoaaaa.jpg")
@@ -66,13 +67,19 @@ for number in ["3","2","1"]:
     screen.blit(text,rect)
     pygame.display.update()
     pygame.time.delay(1000)
+prehistoric=pygame.time.get_ticks()
+text1=giant.render(str(dinosaurs),True,("white"))
+rect1=text1.get_rect(center=(50,50))
 while iranfromhome_love:
     clock.tick(60)
-    dinosaurs-=1
+    current=pygame.time.get_ticks()
     screen.blit(utahime,(0,0))
-    text=giant.render(str(dinosaurs),True,("white"))
-    rect=text.get_rect(center=(400,225))
-    screen.blit(text,rect)
+    if current-prehistoric>1000:
+        dinosaurs-=1
+        text1=giant.render(str(dinosaurs),True,("white"))
+        rect1=text1.get_rect(center=(50,50))
+        prehistoric=current
+    screen.blit(text1,rect1)
     text=crescent.render(str(lightyear),True,("white"))
     rect=text.get_rect(center=(725,50))
     screen.blit(text,rect)
@@ -96,9 +103,17 @@ while iranfromhome_love:
             i.rect.y=random.randint(-300,-50)
             i.rect.x=random.randint(50,750)
             i.speed=random.randint(3,5)
-
     troupe.draw(screen)
     InnocentMassacre.draw(screen)
     mmi.planet()
+    if dinosaurs <= 0:
+        screen.fill("black")
+        giant=pygame.font.Font(None,50)
+        text=giant.render("Game over.....Your score is:"+str(lightyear),True,("white"))
+        rect=text.get_rect(center=(375,225))
+        screen.blit(text,rect)
+        pygame.display.update()
+        pygame.time.delay(9000)
+        iranfromhome_love=False
     pygame.display.update()
 pygame.quit()
